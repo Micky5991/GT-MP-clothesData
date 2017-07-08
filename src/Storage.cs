@@ -8,7 +8,6 @@ namespace clothInfoGen
     {
         public Dictionary<int, PedData> pedData = new Dictionary<int, PedData>();
 
-
         public PedData AddPed(PedHash ped, PedData data)
         {
             data.Hash();
