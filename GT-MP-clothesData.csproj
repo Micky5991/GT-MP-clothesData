@@ -39,8 +39,10 @@
     <Reference Include="ScriptHookVDotNet3, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>F:\Game\ScriptHookVDotNet3.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\data\PedData.cs" />
     <Compile Include="src\Main.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
