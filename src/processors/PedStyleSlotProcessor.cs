@@ -10,11 +10,29 @@ namespace clothInfoGen.processors
         public static void Process(Ped ped, int component, PedComponent slot, ClothSlotData slotData)
         {
             slotData.drawableCount = slot.Count;
-            slotData.variationCount = new int[slotData.drawableCount];
             for (int dr = 0; dr < slotData.drawableCount; dr++)
             {
-                slotData.variationCount[dr] =
-                    Function.Call<int>(Hash.GET_NUMBER_OF_PED_TEXTURE_VARIATIONS, ped.Handle, component, dr) + 1;
+                if (slot.SetVariation(dr))
+                {
+                    var drData = new ClothDrawableData
+                    {
+                        textureCount = slot.TextureCount
+                    };
+                    slotData.drawables.Add(dr, drData);
+
+                    for (int t = 0; t < slot.TextureCount; t++)
+                    {
+                        if (slot.SetVariation(dr, t))
+                        {
+                            drData.textures.Add(t, new ClothTextureData
+                            {
+                                id = t,
+                                hash = Function.Call<uint>(Hash.GET_HASH_NAME_FOR_COMPONENT, ped.Handle, component, dr, t)
+                            });
+                        }
+                    }
+                }
+                
             }
         }
         

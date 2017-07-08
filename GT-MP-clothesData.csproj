@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\data\ClothSlotData.cs" />
+    <Compile Include="src\data\ClothDrawableData.cs" />
+    <Compile Include="src\data\ClothTextureData.cs" />
     <Compile Include="src\data\PedData.cs" />
     <Compile Include="src\interfaces\IHashable.cs" />
     <Compile Include="src\Main.cs" />
